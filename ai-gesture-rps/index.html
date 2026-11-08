@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gesture Arena | AI Rock Paper Scissors</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="glow glow-one"></div><div class="glow glow-two"></div>
+  <main class="app">
+    <header class="topbar">
+      <a class="brand" href="#"><span class="brand-icon">✦</span> GESTURE<span>ARENA</span></a>
+      <div class="live-pill"><i></i> AI PLAYER ONLINE</div>
+    </header>
+
+    <section class="hero">
+      <p class="eyebrow">CAMERA-POWERED ARCADE</p>
+      <h1>Rock. Paper. <span>AI.</span></h1>
+      <p class="subtitle">Your hand is the controller. Your opponent is artificial intelligence.</p>
+    </section>
+
+    <section class="scoreboard">
+      <div class="score-card"><span>YOU</span><strong id="playerScore">0</strong></div>
+      <div class="match-status"><span class="status-dot"></span><span id="statusText">READY TO PLAY</span></div>
+      <div class="score-card ai-score"><span>AI</span><strong id="aiScore">0</strong></div>
+    </section>
+
+    <section class="game-grid">
+      <article class="panel camera-panel">
+        <div class="panel-heading">
+          <div><span class="panel-kicker">PLAYER 01</span><h2>Your camera</h2></div>
+          <span class="camera-state" id="cameraState">CAMERA OFF</span>
+        </div>
+        <div class="camera-wrap">
+          <video id="webcam" autoplay playsinline muted></video>
+          <canvas id="overlay"></canvas>
+          <div class="camera-placeholder" id="cameraPlaceholder">
+            <div class="camera-symbol">◎</div>
+            <strong>Ready when you are</strong>
+            <span>Enable your camera to detect hand gestures</span>
+          </div>
+          <div class="gesture-chip" id="gestureChip">✋ Waiting for hand...</div>
+        </div>
+        <div class="camera-actions">
+          <button class="primary-btn" id="startCamera">Enable camera</button>
+          <button class="secondary-btn" id="stopCamera" disabled>Stop</button>
+        </div>
+        <p class="privacy-note">🔒 Camera processing happens in your browser. Video is not uploaded.</p>
+      </article>
+
+      <article class="panel arena-panel">
+        <div class="panel-heading">
+          <div><span class="panel-kicker">THE ARENA</span><h2>Make your move</h2></div>
+          <span class="round-label" id="roundLabel">ROUND 01</span>
+        </div>
+        <div class="versus">
+          <div class="move-box"><span>YOU</span><div class="move-emoji" id="playerMove">✊</div><b id="playerMoveText">—</b></div>
+          <div class="versus-mark">VS</div>
+          <div class="move-box"><span>AI</span><div class="move-emoji" id="aiMove">🤖</div><b id="aiMoveText">READY</b></div>
+        </div>
+        <div class="result-box" id="resultBox">
+          <span class="result-icon">⚡</span>
+          <div><strong id="resultTitle">Show a gesture!</strong><p id="resultMessage">Rock, paper, or scissors. Hold it steady to play.</p></div>
+        </div>
+        <div class="manual-area">
+          <p class="manual-title">OR TRY A PRACTICE MOVE</p>
+          <div class="move-buttons">
+            <button class="move-btn" data-move="rock"><span>✊</span>Rock</button>
+            <button class="move-btn" data-move="paper"><span>✋</span>Paper</button>
+            <button class="move-btn" data-move="scissors"><span>✌️</span>Scissors</button>
+          </div>
+        </div>
+        <button class="reset-btn" id="resetGame">↻ Reset match</button>
+      </article>
+    </section>
+
+    <section class="how-to panel">
+      <div class="how-title"><span class="panel-kicker">QUICK GUIDE</span><h2>How to play</h2></div>
+      <div class="guide-grid">
+        <div class="guide-item"><span class="guide-emoji">✊</span><div><b>Rock</b><small>Close your fist</small></div></div>
+        <div class="guide-item"><span class="guide-emoji">✋</span><div><b>Paper</b><small>Open your palm</small></div></div>
+        <div class="guide-item"><span class="guide-emoji">✌️</span><div><b>Scissors</b><small>Raise index + middle fingers</small></div></div>
+      </div>
+      <p class="tip">Tip: Keep one hand in view and hold your gesture steady for about one second. The game has a short cooldown between rounds.</p>
+    </section>
+    <footer>GESTURE ARENA <span>·</span> BUILT WITH AI HAND TRACKING</footer>
+  </main>
+  <script type="module" src="script.js"></script>
+</body>
+</html>
